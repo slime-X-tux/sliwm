@@ -78,15 +78,18 @@ static const char *termcmd[]  = { "urxvt", NULL };
 static const char scratchpadname[] = "slatty";
 static const char *scratchpadcmd[] = { "urxvt", "-g", "60x34", NULL };
 static const char *obsidian[] = { "obsidian", NULL };
-
+static const char *libre[] = { "librewolf", NULL };
+static const char *rofi[] = { "rofi", "-show", "drun",  NULL };
 
 #include "movestack.c"
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       0,         spawn,          {.v = dmenucmd } },
+	{ 0,                            0,         spawn,          {.v = dmenucmd } },
+    { MODKEY,                       XK_a,      spawn,          {.v = rofi } },
+	{ MODKEY,                       XK_f,      spawn,          {.v = libre } },
 	{ MODKEY,                       XK_o,      spawn,          {.v = obsidian } },
-        { MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
+    { MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_x,      focusstack,     {.i = +1 } },
@@ -101,7 +104,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_c,      killclient,     {0} },
-	{ MODKEY|ControlMask,		XK_comma,  cyclelayout,    {.i = -1 } },
+	{ MODKEY|ControlMask,		    XK_comma,  cyclelayout,    {.i = -1 } },
 	{ MODKEY|ControlMask,           XK_period, cyclelayout,    {.i = +1 } },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
