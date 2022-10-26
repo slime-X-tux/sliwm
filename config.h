@@ -1,6 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
+static const int vertpad            = 10;       /* vertical padding of bar */
+static const int sidepad            = 10;       /* horizontal padding of bar */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -74,9 +76,9 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "urxvt", NULL };
+static const char *termcmd[]  = { "st", NULL };
 static const char scratchpadname[] = "slatty";
-static const char *scratchpadcmd[] = { "urxvt", "-g", "60x34", NULL };
+static const char *scratchpadcmd[] = { "st", "-g", "60x34", NULL };
 static const char *obsidian[] = { "obsidian", NULL };
 static const char *libre[] = { "librewolf", NULL };
 static const char *rofi[] = { "rofi", "-show", "drun",  NULL };
