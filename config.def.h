@@ -3,7 +3,7 @@
 /* appearance */
 static const int vertpad            = 7;        /* vertical padding of bar */
 static const int sidepad            = 5;        /* horizontal padding of bar */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int gappx     = 10;       /* gaps between windows */
 static const unsigned int snap      = 5;        /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
@@ -11,11 +11,11 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Anka/Coder:size=12", "Awesome:size=12" };
 static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+static const char col_gray1[]       = "#010e08"; //backgroung color
+static const char col_gray2[]       = "#253A1B"; //inactive window border color
+static const char col_gray3[]       = "#4A7537"; //font color
+static const char col_gray4[]       = "#010c07"; //current tag and current window font color
+static const char col_cyan[]        = "#4A7537"; //active window border
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
