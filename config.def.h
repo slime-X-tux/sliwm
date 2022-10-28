@@ -2,8 +2,8 @@
 
 /* appearance */
 static const int vertpad            = 7;        /* vertical padding of bar */
-static const int sidepad            = 5;        /* horizontal padding of bar */
-static const unsigned int borderpx  = 3;        /* border pixel of windows */
+static const int sidepad            = 6;        /* horizontal padding of bar */
+static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const unsigned int gappx     = 10;       /* gaps between windows */
 static const unsigned int snap      = 5;        /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
@@ -13,9 +13,9 @@ static const char *fonts[]          = { "Anka/Coder:size=12", "Awesome:size=12" 
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#010e08"; //backgroung color
 static const char col_gray2[]       = "#253A1B"; //inactive window border color
-static const char col_gray3[]       = "#4A7537"; //font color
+static const char col_gray3[]       = "#497a5c"; //font color
 static const char col_gray4[]       = "#010c07"; //current tag and current window font color
-static const char col_cyan[]        = "#4A7537"; //active window border
+static const char col_cyan[]        = "#497a5c"; //active window border
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -75,23 +75,21 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-c", "-h", "40", "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "urxvtc", NULL };
 static const char scratchpadname[] = "slatty";
 static const char *scratchpadcmd[] = { "urxvtc", "-g", "60x34", NULL };
 static const char *obsidian[] = { "obsidian", NULL };
 static const char *libre[] = { "librewolf", NULL };
-static const char *rofi[] = { "rofi", "-show", "drun",  NULL };
 
 #include "movestack.c"
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ 0,                            0,         spawn,          {.v = dmenucmd } },
-    { MODKEY,                       XK_a,      spawn,          {.v = rofi } },
+        { MODKEY,                       XK_a,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_f,      spawn,          {.v = libre } },
 	{ MODKEY,                       XK_o,      spawn,          {.v = obsidian } },
-    { MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
+        { MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_x,      focusstack,     {.i = +1 } },
